@@ -1,6 +1,14 @@
 name: Build and Push Docker Image to Google Artifact Registry
 
 on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+on:
 push:
  branches:
    - main  # Modifier si nécessaire
