@@ -28,15 +28,11 @@ jobs:
       - name: Set up Google Cloud SDK
         uses: google-github-actions/setup-gcloud@v1
         with:
-          version: 'latest'
+          project_id: cs-poc-hpzdycpiqjyvinhrczvlwcn
 
       - name: Authenticate Docker to Google Artifact Registry
         run: |
-          gcloud auth configure-docker --quiet
-
-      - name: Verify authentication
-        run: |
-          gcloud auth list
+          gcloud auth configure-docker europe-west9-docker.pkg.dev 
 
       - name: Build the Docker image
         run: |
