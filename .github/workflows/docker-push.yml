@@ -39,6 +39,10 @@ jobs:
         run: |
           docker push europe-west9-docker.pkg.dev/cs-poc-hpzdycpiqjyvinhrczvlwcn/student-gregoire/quelpoke:latest
 
+      - name: Plugin auth-gke install
+        run: |
+          gcloud components install gke-gcloud-auth-plugin
+
       - name: Set up Kubernetes
         run: |
           gcloud container clusters get-credentials quelpoke-clone-1 --region=europe-west10
