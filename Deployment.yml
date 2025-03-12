@@ -47,7 +47,7 @@ metadata:
   name: quelpoke-greg-service
 spec:
   selector:
-    app: quelpoke-greg
+    app.kubernetes.io/name: quelpoke-greg
   ports:
     - protocol: TCP
       port: 8080
