@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: quelpoke-greg
+  namespace: quelpoke-greg
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: quelpoke-greg
+  template:
+    metadata:
+      labels:
+        app: quelpoke-greg
+    spec:
+      containers:
+      - name: quelpoke-greg
+        image: europe-west9-docker.pkg.dev/cs-poc-hpzdycpiqjyvinhrczvlwcn/student-gregoire/quelpoke:latest
+        ports:
+        - containerPort: 8080
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: quelpoke-greg-service
+  namespace: quelpoke-greg
+spec:
+  selector:
+    app: quelpoke-greg
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 8080
+  type: LoadBalancer  # Mets "NodePort" si tu tests en local
