@@ -18,6 +18,10 @@ spec:
         image: europe-west9-docker.pkg.dev/cs-poc-hpzdycpiqjyvinhrczvlwcn/student-gregoire/quelpoke:latest
         ports:
         - containerPort: 8080
+        ressources:
+          limits:
+            memory: "256Mi"
+            cpu: "200m"
 
 ---
 kind: HTTPRoute
