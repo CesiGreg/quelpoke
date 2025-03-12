@@ -36,7 +36,7 @@ spec:
         type: PathPrefix
         value: /greg
     backendRefs:
-    - name: quelpoke
+    - name: quelpoke-greg-service
       port: 8080
 
 ---
@@ -47,8 +47,8 @@ metadata:
   name: quelpoke-greg-service
 spec:
   selector:
-    app.kubernetes.io/name: quelpoke-greg
+    app: quelpoke-greg
   ports:
     - protocol: TCP
-      port: 443
+      port: 8080
       targetPort: 8080
