@@ -30,11 +30,11 @@ spec:
   - kind: Gateway
     name: external-http-gateway
     namespace: infra
-rules:
-- matches:
-  - path:
-      type: PathPrefix
-      value: /greg
-  backendRefs:
-  - name: quelpoke
-    port: 8080
+  rules:
+  - matches:
+    - path:
+        type: PathPrefix
+        value: /greg
+    backendRefs:
+    - name: quelpoke
+      port: 8080
