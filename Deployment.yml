@@ -38,3 +38,17 @@ spec:
     backendRefs:
     - name: quelpoke
       port: 8080
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: quelpoke-greg-service
+spec:
+  selector:
+    app.kubernetes.io/name: quelpoke-greg
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8080
