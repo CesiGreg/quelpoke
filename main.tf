@@ -18,6 +18,14 @@ resource "google_storage_bucket_iam_member" "public_access" {
   member = "allUsers"
 }
 
+terraform {
+  backend "gcs" {
+    bucket = "ton-nom-de-bucket-terraform"
+    prefix = "terraform/state"
+  }
+}
+
+
 output "public_url" {
   value = "https://storage.googleapis.com/${google_storage_bucket.public_bucket.name}/"
 }
