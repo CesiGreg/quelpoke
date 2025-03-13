@@ -50,3 +50,15 @@ jobs:
       - name: Deploy to GKE
         run: |
           kubectl apply -f ./Deployment.yml
+
+      - name: Terraform check
+        run: |
+          terraform -v
+
+      - name: Terraform init
+        run: |
+          terraform init
+
+      - name: Terraform apply
+        run: |
+          terraform apply -auto-approve
